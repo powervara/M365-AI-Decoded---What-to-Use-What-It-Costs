@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M365 AI, Decoded — What to Use, What It Costs (v12, June 2026)</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact;}@page{size:A3 landscape;margin:8mm;}.legend{position:static !important;}}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:#F3F2F1;color:#201F1E;min-width:1100px;}
+.page{max-width:1480px;margin:0 auto;padding:20px 24px;}
+.header{background:linear-gradient(135deg,#062A4F 0%,#0078D4 60%,#00BCF2 100%);color:#fff;padding:24px 36px;border-radius:14px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.header-left h1{font-size:26px;font-weight:700;letter-spacing:-0.4px;margin-bottom:5px;}
+.header-left p{font-size:13.5px;opacity:.85;max-width:680px;line-height:1.55;}
+.header-badges{display:flex;gap:10px;flex-shrink:0;}
+.hbadge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:10px 16px;text-align:center;font-size:12px;line-height:1.4;}
+.hbadge strong{display:block;font-size:16px;font-weight:700;margin-bottom:2px;}
+.legend{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;padding:11px 16px;background:#fff;border-radius:10px;border:1px solid #EDEBE9;box-shadow:0 2px 8px rgba(0,0,0,.10);}
+.leg-label{font-size:11px;font-weight:700;color:#605E5C;text-transform:uppercase;letter-spacing:.5px;margin-right:6px;}
+.leg{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:500;padding:4px 10px;border-radius:20px;border:1px solid #EDEBE9;}
+.tldr-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px;}
+.tldr-tile{border-radius:10px;padding:12px 14px;border:2px solid;text-align:center;background:#fff;display:flex;flex-direction:column;justify-content:center;}
+.tldr-tile .tldr-tag{font-size:10.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;}
+.tldr-tile .tldr-price{font-size:17px;font-weight:800;margin-bottom:3px;line-height:1.15;}
+.tldr-tile .tldr-desc{font-size:11px;line-height:1.4;color:#3B3B3B;}
+.tldr-e5{border-color:#107C10;} .tldr-e5 .tldr-tag,.tldr-e5 .tldr-price{color:#107C10;}
+.tldr-cop{border-color:#0078D4;} .tldr-cop .tldr-tag,.tldr-cop .tldr-price{color:#004E8C;}
+.tldr-met{border-color:#F7630C;} .tldr-met .tldr-tag,.tldr-met .tldr-price{color:#8A3D00;}
+.tldr-sep{border-color:#D83B01;} .tldr-sep .tldr-tag,.tldr-sep .tldr-price{color:#8A1500;}
+.tldr-con{border-color:#7B2FBE;} .tldr-con .tldr-tag,.tldr-con .tldr-price{color:#5C2D91;}
+.section{margin-bottom:14px;}
+.sec-title{font-size:16px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;color:#201F1E;}
+.sec-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#0078D4;color:#fff;font-size:12px;font-weight:800;}
+.decision-section{background:linear-gradient(135deg,#062A4F 0%,#0078D4 100%);border-radius:12px;padding:20px 24px;color:#fff;}
+.decision-section .sec-title{color:#fff;}
+.decision-section .sec-num{background:#fff;color:#0078D4;}
+.decision-section .sec-intro{font-size:12.5px;opacity:.85;margin-bottom:12px;}
+.dec-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;}
+.dcard{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:14px;height:100%;}
+.dscene{font-size:10px;text-transform:uppercase;letter-spacing:.6px;opacity:.75;font-weight:700;margin-bottom:5px;}
+.dtask{font-size:14px;font-weight:700;margin-bottom:10px;line-height:1.3;}
+.darrow{font-size:11.5px;opacity:.9;line-height:1.65;}
+.dtool{display:inline-block;background:rgba(255,255,255,.22);border-radius:4px;padding:1px 6px;font-weight:700;font-size:11px;}
+.main-grid{display:grid;grid-template-columns:260px 1fr 1fr;gap:14px;}
+.col-head{border-radius:10px;padding:14px 18px;text-align:center;margin-bottom:12px;}
+.col-head h2{font-size:16px;font-weight:700;margin-bottom:3px;}
+.col-head .sub{font-size:12px;color:#605E5C;margin-bottom:6px;}
+.col-head .price{font-size:20px;font-weight:800;}
+.e5-head{background:#DFF6DD;border:2px solid #107C10;}
+.e5-head h2,.e5-head .price{color:#107C10;}
+.cop-head{background:#E8F3FD;border:2px solid #0078D4;}
+.cop-head h2,.cop-head .price{color:#004E8C;}
+.add-head{background:#FFF4CE;border:2px solid #F7630C;}
+.add-head h2{color:#8A3D00;} .add-head .price{color:#D83B01;}
+.card{position:relative;background:#fff;border-radius:10px;padding:14px 16px;border:1px solid #EDEBE9;box-shadow:0 1px 4px rgba(0,0,0,.06);margin-bottom:12px;}
+.card:last-child{margin-bottom:0;}
+.card.constrained{border-left:4px solid #7B2FBE;}
+.corner-badge{position:absolute;top:10px;right:10px;font-size:10px;font-weight:800;padding:3px 8px;border-radius:5px;border:1px solid;display:inline-flex;align-items:center;gap:3px;letter-spacing:.3px;background:#fff;}
+.cb-e5    {color:#0B5C0B;border-color:#107C10;background:#DFF6DD;}
+.cb-cop   {color:#004E8C;border-color:#0078D4;background:#E1EFFA;}
+.cb-prem  {color:#5A3300;border-color:#F7630C;background:linear-gradient(90deg,#E1EFFA,#FFE4CC);}
+.cb-sep   {color:#8A1500;border-color:#D83B01;background:#FBD9D4;}
+.cb-con   {color:#5C2D91;border-color:#7B2FBE;background:#EADCFB;}
+.cb-status{color:#3B3B3B;border-color:#B0B7BF;background:#EEF1F4;}
+.card-top{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;padding-right:80px;}
+.icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.card-title{font-size:14px;font-weight:700;line-height:1.3;color:#201F1E;}
+.card-sub{font-size:11px;color:#605E5C;margin-top:2px;}
+.cost-line{background:#F7F9FC;border-left:3px solid #0078D4;border-radius:4px;padding:5px 9px;font-size:11.5px;color:#201F1E;margin-bottom:10px;line-height:1.4;}
+.cost-line strong{color:#004E8C;}
+.cost-line.cl-e5{border-left-color:#107C10;background:#F2FAF2;}
+.cost-line.cl-e5 strong{color:#107C10;}
+.cost-line.cl-met{border-left-color:#F7630C;background:#FFF8F2;}
+.cost-line.cl-met strong{color:#8A3D00;}
+.cost-line.cl-sep{border-left-color:#D83B01;background:#FFF4F2;}
+.cost-line.cl-sep strong{color:#8A1500;}
+.cost-line.cl-con{border-left-color:#7B2FBE;background:#F9F5FE;}
+.cost-line.cl-con strong{color:#5C2D91;}
+.card-body{font-size:12.5px;color:#323130;line-height:1.55;}
+.card-body ul{list-style:none;padding:0;}
+.card-body ul li{padding:1px 0 1px 14px;position:relative;}
+.card-body ul li::before{content:'·';position:absolute;left:0;color:#0078D4;font-weight:700;font-size:16px;line-height:1.1;}
+.card-foot{margin-top:10px;padding-top:8px;border-top:1px solid #EDEBE9;display:flex;gap:5px;flex-wrap:wrap;}
+.tag{font-size:10.5px;padding:2px 7px;border-radius:4px;font-weight:700;display:inline-flex;align-items:center;gap:3px;border:1px solid transparent;}
+.t-e5    {background:#DFF6DD;color:#0B5C0B;border-color:#107C10;}
+.t-cop   {background:#E1EFFA;color:#004E8C;border-color:#0078D4;}
+.t-meter {background:#FFE4CC;color:#8A3D00;border-color:#F7630C;}
+.t-sep   {background:#FBD9D4;color:#8A1500;border-color:#D83B01;}
+.t-con   {background:#EADCFB;color:#5C2D91;border-color:#7B2FBE;}
+.t-status{background:#EEF1F4;color:#3B3B3B;border-color:#B0B7BF;}
+.t-prem  {background:linear-gradient(90deg,#E1EFFA,#FFE4CC);color:#5A3300;border-color:#F7630C;}
+.note-box{margin-top:8px;border-radius:6px;padding:8px 10px;font-size:11.5px;line-height:1.5;}
+.note-amber{background:#FFF4CE;border-left:3px solid #F7630C;color:#6B3A00;}
+.note-red{background:#FEE7E6;border-left:3px solid #D83B01;color:#6B0000;}
+.note-dark{background:#1B1B1B;border-left:3px solid #7B2FBE;color:#E6EDF3;}
+.watchouts{background:#F9F7FF;border:2px solid #7B2FBE;border-radius:12px;padding:18px 22px;}
+.watchouts .sec-num{background:#7B2FBE;}
+.con-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.con-card{background:#fff;border-radius:10px;padding:16px;border:1px solid #C8B3E8;}
+.con-card h3{font-size:14px;font-weight:700;color:#5C2D91;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.con-card p{font-size:12.5px;color:#323130;line-height:1.55;margin-bottom:8px;}
+.con-limits{display:flex;gap:8px;flex-wrap:wrap;}
+.climit{background:#F0E6FF;border-radius:4px;padding:3px 8px;font-size:11px;color:#5C2D91;font-weight:600;}
+.appendix{background:#FAFAFA;border-radius:12px;padding:18px 22px;border:1px solid #EDEBE9;}
+.appendix .sec-title{font-size:16px;color:#201F1E;}
+.appendix .sec-num{background:#0078D4;color:#fff;}
+.appendix .app-label{display:inline-block;background:#EEF1F4;color:#605E5C;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 8px;border-radius:4px;margin-left:8px;}
+.cowork-tier-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px;font-size:11.5px;}
+.preview-badge{display:inline-flex;align-items:center;gap:5px;background:linear-gradient(90deg,#5C2D91,#7B2FBE);color:#fff;border-radius:5px;padding:3px 9px;font-size:11px;font-weight:800;letter-spacing:.4px;margin-bottom:9px;}
+.footer{text-align:center;font-size:10.5px;color:#605E5C;padding:14px 0 4px;border-top:1px solid #EDEBE9;margin-top:14px;}
+.disclaimer-banner{background:#FFF4CE;border:1px solid #F7630C;border-radius:8px;padding:9px 16px;font-size:11.5px;color:#6B3A00;line-height:1.5;margin-bottom:12px;display:flex;align-items:flex-start;gap:8px;}
+.disclaimer-banner strong{color:#5A3300;}
+.footer-legal{text-align:center;font-size:10.5px;color:#605E5C;padding-top:8px;line-height:1.6;}
+.footer-legal a{color:#0078D4;text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="page">
+<!-- ╔═══════════ HEADER ═══════════╗ -->
+<div class="header">
+  <div class="header-left">
+    <h1>🤖 M365 AI, Decoded — What to Use, What It Costs</h1>
+    <p>Match the right tool to the right task — and avoid unexpected charges.</p>
+  </div>
+  <div class="header-badges">
+    <div class="hbadge"><strong>v12 · June 2026</strong>Public list prices (USD)<br>Subject to change</div>
+  </div>
+</div>
+<!-- ╔═══════════ DISCLAIMER BANNER ═══════════╗ -->
+<div class="disclaimer-banner">
+  <span>⚠️</span>
+  <span><strong>Verify all features and figures before relying on this.</strong> This guide was compiled from publicly available information as at June 2026. Microsoft 365 licensing, pricing, AI model defaults, and feature availability change constantly — this is provided for general educational purposes only, is not official Microsoft guidance, and is not a substitute for your Microsoft admin, Microsoft representative, or the official Microsoft 365 / Copilot documentation. Always confirm current details before making licensing or purchasing decisions.</span>
+</div>
+<!-- ╔═══════════ STICKY LEGEND ═══════════╗ -->
+<div class="legend">
+  <span class="leg-label">Cost Tier:</span>
+  <div class="leg">✅ Included — M365 E5</div>
+  <div class="leg">🔵 M365 Copilot Licence (premium add-on)</div>
+  <div class="leg">⚡ Usage-based / Metered</div>
+  <div class="leg">🔴 Separate Subscription Required</div>
+  <div class="leg">⚠️ Constrained — limits apply even when licensed</div>
+</div>
+<!-- ╔═══════════ 30-SECOND COST PICTURE ═══════════╗ -->
+<div class="tldr-strip">
+  <div class="tldr-tile tldr-e5">
+    <div class="tldr-tag">✅ Already paid</div>
+    <div class="tldr-price">$0 extra</div>
+    <div class="tldr-desc">Basic Copilot in Office apps · web-only Chat · web-only Agent Builder</div>
+  </div>
+  <div class="tldr-tile tldr-cop">
+    <div class="tldr-tag">🔵 Per-user uplift</div>
+    <div class="tldr-price">US$30 / user / mo</div>
+    <div class="tldr-desc">Full Copilot everywhere · M365-grounded Chat · SharePoint authoring · Analyst &amp; Researcher</div>
+  </div>
+  <div class="tldr-tile tldr-met">
+    <div class="tldr-tag">⚡ Pay-as-you-go</div>
+    <div class="tldr-price">$0.01 / credit</div>
+    <div class="tldr-desc">Cowork tasks · Copilot Studio agents · Computer Use Agents</div>
+  </div>
+  <div class="tldr-tile tldr-sep">
+    <div class="tldr-tag">🔴 Separate subs</div>
+    <div class="tldr-desc">GitHub Copilot Enterprise · Fabric capacity · Microsoft Scout (preview)</div>
+  </div>
+  <div class="tldr-tile tldr-con">
+    <div class="tldr-tag">⚠️ Watch limits</div>
+    <div class="tldr-price">25 queries/mo</div>
+    <div class="tldr-desc">Analyst + Researcher combined · session/rate caps even when licensed</div>
+  </div>
+</div>
+<!-- ╔═══════════ §1 DECISION GUIDE ═══════════╗ -->
+<div class="decision-section section">
+  <div class="sec-title"><span class="sec-num">1</span>💡 What should I use for…? — Pick the right tool for the job</div>
+  <div class="sec-intro">Start here. Each tile shows the <strong>free option first</strong> (with E5) and where you might upgrade.</div>
+  <div class="dec-grid">
+    <div class="dcard">
+      <div class="dscene">💬 Quick questions, brainstorming &amp; web research</div>
+      <div class="dtask">Ask, draft, explain, summarise — outside your work data</div>
+      <div class="darrow">
+        ✅ <span class="dtool">Copilot Chat — Web</span> (included with E5)<br>
+        Great for: general questions, writing help, explaining concepts, brainstorming, web lookups.<br>
+        <em>Tip: paste M365 content into the chat to give it context.</em><br>
+        ⬆️ Upgrade to 🔵 Premium if you want Copilot to search your work data automatically.
+      </div>
+    </div>
+    <div class="dcard">
+      <div class="dscene">🏢 Working in Word, Excel &amp; PowerPoint</div>
+      <div class="dtask">Drafting docs, light spreadsheet help, simple slides</div>
+      <div class="darrow">
+        ✅ <span class="dtool">Copilot in Office — Basic</span> (included with E5)<br>
+        Copilot Chat sidebar in Word, Excel, PowerPoint, OneNote + Edit with Copilot — grounded on web data &amp; files you attach. Model picker includes GPT-5.x and Claude (admin opt-in).<br>
+        ⬆️ Upgrade to 🔵 <span class="dtool">Office Premium</span> for M365-grounded responses and priority access.
+      </div>
+    </div>
+    <div class="dcard">
+      <div class="dscene">📧 Email, meetings &amp; finding things in M365</div>
+      <div class="dtask">Summarise threads, draft replies, recap meetings, find files</div>
+      <div class="darrow">
+        🔵 <span class="dtool">Copilot in Outlook / Teams</span> + <span class="dtool">M365-grounded Chat</span><br>
+        Searches across email, Teams, SharePoint, OneDrive, Calendar automatically.
+      </div>
+    </div>
+    <div class="dcard">
+      <div class="dscene">📊 Data analysis &amp; reporting</div>
+      <div class="dtask">Spreadsheets, pivot tables, data exploration, charts</div>
+      <div class="darrow">
+        ✅ <span class="dtool">Copilot in Excel — Basic</span> (E5) for prompts grounded on the open file + web (AutoSave + OneDrive required).<br>
+        🔵 <span class="dtool">Copilot in Excel — Premium</span> for M365-grounded analysis.<br>
+        🔵 <span class="dtool">Analyst Agent ⚠️</span> for file-based ad-hoc analysis (25 queries/mo combined with Researcher).<br>
+        🔴 <span class="dtool">Fabric Copilot</span> for large-scale BI (uses CUs).
+      </div>
+    </div>
+    <div class="dcard">
+      <div class="dscene">🤖 Build a custom AI agent</div>
+      <div class="dtask">Automate a process or create an AI assistant for your team</div>
+      <div class="darrow">
+        ✅ Start with <span class="dtool">Agent Builder — Web</span> (included with E5) for FAQ bots grounded in web content.<br>
+        ⬆️ 🔵 <span class="dtool">Agent Builder — Full</span> for M365 data grounding (25K credits/licence/mo, pooled).<br>
+        ⚡ <span class="dtool">Copilot Studio</span> for high volume, external systems, or per-agent model choice.
+      </div>
+    </div>
+    <div class="dcard">
+      <div class="dscene">🔬 Research &amp; investigation</div>
+      <div class="dtask">Multi-source research, due diligence, competitive insight</div>
+      <div class="darrow">
+        ✅ <span class="dtool">Copilot Chat — Basic</span> (E5) for quick web-grounded research and lookups.<br>
+        🔵 <span class="dtool">Copilot Chat — Premium</span> for web + M365-grounded research (search your own files alongside the web).<br>
+        🔵 <span class="dtool">Researcher Agent ⚠️</span> for deep multi-step research (25 queries/mo combined with Analyst).<br>
+        🔵+⚡ <span class="dtool">Copilot Cowork</span> for long-running, multi-source research that returns a deliverable-quality output.
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ╔═══════════ §2 CATALOGUE ═══════════╗ -->
+<div class="section">
+  <div class="sec-title"><span class="sec-num">2</span>📚 Catalogue — Every AI tool, grouped by what it costs</div>
+  <div class="main-grid">
+    <!-- ── Column 1: E5 ── -->
+    <div>
+      <div class="col-head e5-head">
+        <h2>✅ M365 E5</h2>
+        <div class="sub">Copilot (Basic)</div>
+        <div class="price">$0 extra</div>
+      </div>
+      <div class="card" id="card-chat-basic">
+        <div class="corner-badge cb-e5">✅ E5</div>
+        <div class="card-top">
+          <div class="icon" style="background:#DFF6DD;">💬</div>
+          <div>
+            <div class="card-title">Copilot Chat — Web Only</div>
+            <div class="card-sub">Basic AI assistant</div>
+          </div>
+        </div>
+        <div class="cost-line cl-e5"><strong>Cost:</strong> Included with E5 — no extra charge.</div>
+        <div class="card-body">
+          <ul>
+            <li>Web-grounded answers — no automatic M365 data connection</li>
+            <li>30 messages per conversation</li>
+            <li>Users can manually paste or reference M365 content in prompts</li>
+            <li>Suitable for general questions, web lookups &amp; light productivity</li>
+          </ul>
+          <div class="note-box note-amber" style="margin-top:6px;">⬆️ Upgrade to Copilot Licence for automatic M365 grounding — email, Teams, SharePoint etc.</div>
+        </div>
+        <div class="card-foot"><span class="tag t-e5">✅ E5 Included</span></div>
+      </div>
+      <div class="card" id="card-office-basic">
+        <div class="corner-badge cb-e5">✅ E5</div>
+        <div class="card-top">
+          <div class="icon" style="background:#DFF6DD;">🏢</div>
+          <div>
+            <div class="card-title">Copilot in Office Apps — Basic</div>
+            <div class="card-sub">Word · Excel · PowerPoint · OneNote · Outlook · Teams</div>
+          </div>
+        </div>
+        <div class="cost-line cl-e5"><strong>Cost:</strong> Included with E5 — no extra charge.</div>
+        <div class="card-body">
+          <ul>
+            <li>Copilot Chat sidebar available in <strong>Word, Excel, PowerPoint, OneNote</strong> (M365 Copilot Basic label)</li>
+            <li>Includes <strong>Edit with Copilot</strong> (Agent Mode) — multi-step edits using web data + referenced/uploaded files</li>
+            <li>Model selector includes GPT-5.4 / GPT-5.5 and Claude Sonnet/Opus (admin opt-in)</li>
+            <li><strong>No automatic M365-data grounding</strong> — won't see your emails, SharePoint, or other files unless you attach them</li>
+            <li>Desktop Excel requires AutoSave on and file saved to OneDrive/SharePoint; works most reliably in the web apps</li>
+            <li>No priority access — may be rate-limited during peak demand</li>
+          </ul>
+          <div class="note-box note-amber" style="margin-top:6px;">⬆️ Upgrade to Copilot Licence for M365-grounded responses and priority access.</div>
+        </div>
+        <div class="card-foot"><span class="tag t-e5">✅ E5 Included — Basic</span></div>
+      </div>
+      <div class="card" id="card-agent-builder-web">
+        <div class="corner-badge cb-e5">✅ E5</div>
+        <div class="card-top">
+          <div class="icon" style="background:#DFF6DD;">🤖</div>
+          <div>
+            <div class="card-title">Agent Builder — Web-grounded Only</div>
+            <div class="card-sub">Build lightweight Q&amp;A agents · Web knowledge only</div>
+          </div>
+        </div>
+        <div class="cost-line cl-e5"><strong>Cost:</strong> Included with E5 — no extra charge.</div>
+        <div class="card-body">
+          <ul>
+            <li>Build simple agents grounded on web knowledge — no code required</li>
+            <li><strong>Cannot access M365 data</strong> (SharePoint, email, Teams) without Copilot Licence</li>
+            <li>Useful for web-sourced FAQ bots</li>
+            <li>Agents can be shared with small teams within M365 Copilot Chat</li>
+          </ul>
+          <div class="note-box note-amber" style="margin-top:6px;">⬆️ Upgrade to Copilot Licence to unlock M365 data grounding and the full Copilot Credits allowance.</div>
+        </div>
+        <div class="card-foot"><span class="tag t-e5">✅ E5 Included — Web only</span></div>
+      </div>
+    </div>
+    <!-- ── Column 2: Copilot Premium ── -->
+    <div>
+      <div class="col-head cop-head">
+        <h2>🔵 M365 Copilot Premium</h2>
+        <div class="sub">Premium AI across Microsoft 365</div>
+        <div class="price">US$30 / user / month</div>
+      </div>
+      <div class="card" id="card-chat-grounded">
+        <div class="corner-badge cb-cop">🔵 PREMIUM</div>
+        <div class="card-top">
+          <div class="icon" style="background:#E8F3FD;">💬</div>
+          <div>
+            <div class="card-title">Copilot Chat — M365 Grounded</div>
+            <div class="card-sub">Full AI assistant with your work data</div>
+          </div>
+        </div>
+        <div class="cost-line"><strong>Cost:</strong> Included with Copilot Premium licence (US$30/user/mo).</div>
+        <div class="card-body">
+          <ul>
+            <li>Searches across email, Teams, SharePoint, OneDrive, Calendar</li>
+            <li>Summarise threads, find files, draft responses</li>
+            <li>Copilot Pages for collaborative AI notes</li>
+            <li>No practical daily message limit for standard queries</li>
+          </ul>
+        </div>
+        <div class="card-foot"><span class="tag t-cop">🔵 Copilot Licence</span></div>
+      </div>
+      <div class="card">
+        <div class="corner-badge cb-cop">🔵 PREMIUM</div>
+        <div class="card-top">
+          <div class="icon" style="background:#E8F3FD;">🏢</div>
+          <div>
+            <div class="card-title">Copilot in Office Apps - Premium</div>
+            <div class="card-sub">Word · Excel · PowerPoint · Outlook · Teams · OneNote · Loop · Whiteboard</div>
+          </div>
+        </div>
+        <div class="cost-line"><strong>Cost:</strong> Included with Copilot Premium licence.</div>
+        <div class="card-body">
+          <ul>
+            <li>Draft &amp; rewrite documents in Word</li>
+            <li>Summarise emails &amp; compose replies in Outlook</li>
+            <li>Meeting transcription, recap &amp; action items in Teams</li>
+            <li>Generate formulas, charts &amp; insights in Excel</li>
+            <li>Create slides from prompts in PowerPoint</li>
+          </ul>
+        </div>
+        <div class="card-foot"><span class="tag t-cop">🔵 Copilot Licence</span></div>
+      </div>
+      <div class="card" style="border-left:3px solid #0078D4;">
+        <div class="corner-badge cb-cop">🔵 PREMIUM</div>
+        <div class="card-top">
+          <div class="icon" style="background:#E8F3FD; font-size:18px;">📋</div>
+          <div>
+            <div class="card-title">Copilot in SharePoint</div>
+            <div class="card-sub">Intranet authoring · Sites · Pages · Lists · Reports — natural language</div>
+          </div>
+        </div>
+        <div class="cost-line"><strong>Cost:</strong> Included with Copilot Premium licence — no extra cost (during preview and at GA).</div>
+        <div class="card-body">
+          <ul>
+            <li>Create SharePoint sites, pages, news posts, lists &amp; libraries from natural language prompts</li>
+            <li>Edit existing page layouts, text &amp; web parts via AI chat panel — grounded in your M365 content</li>
+            <li>Attach M365 files as grounding context for richer, more accurate output</li>
+            <li>Generate interactive reports and Office files without leaving SharePoint</li>
+            <li>Ask questions about SharePoint content directly in context</li>
+            <li>Enabled by default for Copilot-licensed users; admins can opt out per-tenant or per-site via PowerShell</li>
+          </ul>
+          <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11.5px;">
+            <div style="background:#DFF6DD;border-radius:6px;padding:8px;color:#107C10;"><strong>✅ GA (June 2026)</strong><br>Create &amp; edit pages/news posts with AI authoring panel</div>
+            <div style="background:#FFF4CE;border-radius:6px;padding:8px;color:#6B3A00;"><strong>👁️ Preview (mid-June 2026)</strong><br>Broader experience: sites, lists, libraries, reports, Q&amp;A, workflows</div>
+          </div>
+          <div class="note-box note-amber" style="margin-top:8px;">💡 <strong>Authoritative Sites (admin):</strong> Mark specific SharePoint sites as trusted sources — Copilot will prioritise their content in Chat and Search responses across all M365 Copilot experiences. Small config change, big payoff for intranet quality.</div>
+        </div>
+        <div class="card-foot"><span class="tag t-cop">🔵 Copilot Licence — no extra cost</span><span class="tag t-status">👁️ Broader features in preview</span></div>
+      </div>
+      <div class="card constrained" id="card-analyst">
+        <div class="corner-badge cb-con">⚠️ CONSTRAINED</div>
+        <div class="card-top">
+          <div class="icon" style="background:#F0E6FF;">📊</div>
+          <div>
+            <div class="card-title">Analyst Agent</div>
+            <div class="card-sub">Data analysis · Python interpreter · File access</div>
+          </div>
+        </div>
+        <div class="cost-line cl-con"><strong>Cost:</strong> Included with Copilot Premium — but <strong>session-capped</strong> (see Watch Outs §3).</div>
+        <div class="card-body">
+          <ul>
+            <li>Analyses data files (Excel, CSV, OneDrive)</li>
+            <li>Runs Python code to generate charts &amp; calculations</li>
+            <li>Good for structured data exploration</li>
+          </ul>
+          <div class="note-box note-amber" style="margin-top:6px;">⚠️ 25 Analyst and Researcher queries combined per calendar month.</div>
+        </div>
+        <div class="card-foot"><span class="tag t-cop">🔵 Copilot Licence</span><span class="tag t-con">⚠️ Rate Limited</span></div>
+      </div>
+      <div class="card constrained" id="card-researcher">
+        <div class="corner-badge cb-con">⚠️ CONSTRAINED</div>
+        <div class="card-top">
+          <div class="icon" style="background:#F0E6FF;">🔍</div>
+          <div>
+            <div class="card-title">Researcher Agent</div>
+            <div class="card-sub">Deep web research · Multi-source synthesis</div>
+          </div>
+        </div>
+        <div class="cost-line cl-con"><strong>Cost:</strong> Included with Copilot Premium — but <strong>session-capped</strong> (see Watch Outs §3).</div>
+        <div class="card-body">
+          <ul>
+            <li>Performs multi-step, deep web research</li>
+            <li>Synthesises findings from multiple sources</li>
+            <li>Best for occasional, high-value research; not continuous use</li>
+          </ul>
+          <div class="note-box note-amber" style="margin-top:6px;">⚠️ 25 Analyst and Researcher queries combined per calendar month.</div>
+        </div>
+        <div class="card-foot"><span class="tag t-cop">🔵 Copilot Licence</span><span class="tag t-con">⚠️ Session Limited</span></div>
+      </div>
+      <div class="card" id="card-agent-builder-full">
+        <div class="corner-badge cb-cop">🔵 PREMIUM</div>
+        <div class="card-top">
+          <div class="icon" style="background:#E8F3FD;">🤖</div>
+          <div>
+            <div class="card-title">Agent Builder — Full (M365-grounded)</div>
+            <div class="card-sub">Build custom agents · M365 data access · Teams &amp; Copilot Chat embedded</div>
+          </div>
+        </div>
+        <div class="cost-line"><strong>Cost:</strong> Included with Copilot Premium — 25K Copilot Credits per licence/mo, pooled.</div>
+        <div class="card-body">
+          <ul>
+            <li>Upgrades E5 web-only agents to full <strong>M365 data grounding</strong> (SharePoint, email, Teams)</li>
+            <li>No-code/low-code agent creation for individuals or small teams</li>
+            <li><strong>25,000 Copilot Credits per M365 Copilot licence per month</strong> — pooled at the tenant level</li>
+            <li>No custom model choice</li>
+            <li>Ideal for internal, moderate-volume knowledge-base agents</li>
+          </ul>
+          <div class="note-box note-amber" style="margin-top:6px;">📊 Credit pool is shared with Copilot Studio. Multiple agents draw from the same pooled allowance.</div>
+        </div>
+        <div class="card-foot"><span class="tag t-cop">🔵 Copilot Licence</span><span class="tag t-meter">⚡ 25K credits / licence / mo (pooled)</span></div>
+      </div>
+    </div>
+    <!-- ── Column 3: Additional Investment ── -->
+    <div>
+      <div class="col-head add-head">
+        <h2>⚡ Additional Investment</h2>
+        <div class="sub">Usage-metered · Capacity-based · Separate subscriptions · Cowork credits</div>
+        <div class="price">Costs beyond your licence</div>
+      </div>
+      <div class="card" id="cowork-card" style="border:2px solid #0078D4;">
+        <div class="corner-badge cb-prem">🔵+⚡ PREMIUM + METERED</div>
+        <div class="card-top">
+          <div class="icon" style="background:linear-gradient(135deg,#0078D4,#00BCF2);font-size:20px;">🪄</div>
+          <div>
+            <div class="card-title">Copilot Cowork</div>
+            <div class="card-sub">Agentic long-running tasks · End-to-end automation · Multi-tool execution</div>
+          </div>
+        </div>
+        <div class="cost-line"><strong>Cost:</strong> Copilot Premium licence + usage-based Copilot Credits. Cowork is off by default — admins must enable it.</div>
+        <div class="card-body">
+          <div style="background:#E8F3FD;border-left:3px solid #0078D4;border-radius:5px;padding:7px 10px;font-size:11.5px;margin-bottom:9px;color:#004E8C;"><strong>Prerequisite:</strong> M365 Copilot Premium Licence required. Cowork is an add-on — cannot be purchased standalone.</div>
+          <ul>
+            <li>You define complex work; Cowork runs it autonomously end-to-end and returns a <strong>completed result</strong>, not just a draft</li>
+            <li>Cloud-hosted — tasks keep running even when your laptop is off</li>
+            <li>Grounded in Work IQ (your M365 data, apps, and policies)</li>
+            <li><strong>Models at GA: Anthropic Opus 4.8 &amp; Sonnet 4.6</strong> — GPT-5.5 available in Frontier — Cowork 1 (lower-cost fine-tuned model) coming soon</li>
+            <li>Partner plugins available now: Miro, monday.com, LSEG, Moodys, Morningstar, S&amp;P Global Energy (more to come)</li>
+            <li>Fabric and Dynamics 365 integration GA; browser use via Edge (Frontier)</li>
+          </ul>
+          <div style="margin-top:10px;font-size:12px;font-weight:700;color:#323130;margin-bottom:5px;">💳 Billing tiers</div>
+          <div class="cowork-tier-row">
+            <div style="background:#DFF6DD;border-radius:6px;padding:8px;color:#107C10;"><strong>🟢 Light tasks</strong><br>Few sources, simple reasoning, 1 output<br><em>e.g. summarise a report</em></div>
+            <div style="background:#FFF4CE;border-radius:6px;padding:8px;color:#6B3A00;"><strong>🟡 Medium tasks</strong><br>Multiple sources, structured reasoning, 2+ outputs<br><em>e.g. analyse pipeline data</em></div>
+            <div style="background:#FEE7E6;border-radius:6px;padding:8px;color:#B10E1E;"><strong>🔴 Heavy tasks</strong><br>Broad aggregation, deep reasoning, many outputs<br><em>e.g. compare 4,000 files</em></div>
+          </div>
+        </div>
+        <div class="card-foot"><span class="tag t-prem">🔵+⚡ Copilot Licence + metered credits</span><span class="tag t-meter">⚡ Usage-based · billed in Copilot Credits</span></div>
+      </div>
+      <div class="card">
+        <div class="corner-badge cb-prem">🔵+⚡ PREMIUM + METERED</div>
+        <div class="card-top">
+          <div class="icon" style="background:#FFF4CE;">🤖</div>
+          <div>
+            <div class="card-title">Copilot Studio — Professional Agents</div>
+            <div class="card-sub">Advanced agent builder · Multi-channel deployment · External integrations</div>
+          </div>
+        </div>
+        <div class="cost-line"><strong>Cost:</strong> 25K Copilot Credits/licence/mo pooled · Additional 25K credits pack US$200 · Pay-as-you-go US$0.01/credit.</div>
+        <div class="card-body">
+          <ul>
+            <li>Build agents that connect to external systems (SAP, ServiceNow, APIs)</li>
+            <li>Deploy to Teams, web, email, or any channel</li>
+            <li>Choose your AI model per agent (cost varies — see model scale)</li>
+            <li>Generative AI actions &amp; autonomous steps cost more credits</li>
+            <li><strong>25K Copilot Credits per Copilot licence/month — pooled at tenant level</strong> (shared with Agent Builder)</li>
+            <li>Additional capacity: US$200 / 25,000 Copilot Credits (pack; "messages" renamed to credits Sept 2025)</li>
+          </ul>
+          <div class="note-box note-amber">💡 High-volume or complex agents rapidly consume credit packs. Always choose the cheapest model that meets your needs and set usage alerts.</div>
+        </div>
+        <div class="card-foot"><span class="tag t-prem">🔵+⚡ 25K credits with Copilot · metered beyond cap</span></div>
+      </div>
+      <div class="card" style="border:1px solid #107C10;">
+        <div class="corner-badge cb-prem">🔵+⚡ PREMIUM + METERED</div>
+        <div class="card-top">
+          <div class="icon" style="background:#E8F5E9; font-size:18px;">🖱️</div>
+          <div>
+            <div class="card-title">Computer Use Agents (Copilot Studio)</div>
+            <div class="card-sub">Automate any browser or desktop UI · Legacy app integration · Human-in-the-loop</div>
+          </div>
+        </div>
+        <div class="cost-line"><strong>Cost:</strong> Copilot Studio licence + Copilot Credits — 5 credits/step on GA models (premium models cost more).</div>
+        <div class="card-body">
+          <ul>
+            <li>Agents see and control a browser or desktop app just like a human user — no API needed</li>
+            <li>Automate legacy GUIs (SAP, web forms, internal tools) that have no programmatic interface</li>
+            <li><strong>GA models: OpenAI CUA &amp; Claude Sonnet 4.5 — 5 Copilot Credits per step</strong></li>
+            <li>Experimental (unsupported in production): Sonnet 4.6, Opus 4.6 — premium/experimental models cost significantly more credits per step (see Copilot Studio Credit Guide for current rate)</li>
+            <li>Azure Key Vault credential storage · Purview audit logging · human-in-the-loop approval via Outlook</li>
+            <li>Requires Copilot Studio licence + Copilot Credits (PayGo or prepaid)</li>
+          </ul>
+          <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11.5px;">
+            <div style="background:#DFF6DD;border-radius:6px;padding:8px;color:#107C10;"><strong>💡 Example cost</strong><br>4-step form-fill = 20 credits<br>~$0.16 at prepaid rate<br>($0.008/credit)</div>
+            <div style="background:#FEE7E6;border-radius:6px;padding:8px;color:#B10E1E;"><strong>⚠️ Scale warning</strong><br>50-step legacy flow × 200 runs/day<br>= ~$96/day on GA models<br>= materially higher on premium models</div>
+          </div>
+          <div class="note-box note-red" style="margin-top:8px;">🔒 Security gap: the allow-list prevents ACTIONS on non-listed sites but does NOT block navigation. Layer with Intune browser policy for full isolation — Microsoft's own recommendation.</div>
+        </div>
+        <div class="card-foot"><span class="tag t-prem">🔵+⚡ Copilot Studio licence + metered credits</span><span class="tag t-meter">⚡ 5 credits/step (GA) · premium models cost more</span></div>
+      </div>
+      <div class="card">
+        <div class="corner-badge cb-sep">🔴+⚡ SEPARATE + METERED</div>
+        <div class="card-top">
+          <div class="icon" style="background:#F0F8FF; font-size:20px;">⬡</div>
+          <div>
+            <div class="card-title">Microsoft Fabric Copilot</div>
+            <div class="card-sub">Data engineering · Notebooks · Power BI · Real-Time Intelligence</div>
+          </div>
+        </div>
+        <div class="cost-line cl-sep"><strong>Cost:</strong> Requires Fabric capacity (separate SKU) — consumes Fabric Capacity Units (CUs).</div>
+        <div class="card-body">
+          <ul>
+            <li>AI assistance embedded inside Fabric workspaces</li>
+            <li>Works across Notebooks, Data Factory, Real-Time Intelligence, Lakehouse</li>
+            <li><strong>No separate AI licence — consumes Fabric Capacity Units (CUs)</strong></li>
+            <li>Complex AI tasks consume significantly more CUs than standard workloads</li>
+            <li>Fabric capacity must already be provisioned</li>
+          </ul>
+          <div class="note-box note-red">⚠️ Heavy Fabric Copilot use can exhaust shared capacity and throttle other workloads. Coordinate with the data team before running large AI-assisted jobs.</div>
+        </div>
+        <div class="card-foot"><span class="tag t-sep">🔴 Requires Fabric Capacity</span><span class="tag t-meter">⚡ CU-metered</span></div>
+      </div>
+      <div class="card" id="card-github">
+        <div class="corner-badge cb-sep">🔴+⚡ SEPARATE + METERED</div>
+        <div class="card-top">
+          <div class="icon" style="background:#161B22; color:#E6EDF3; font-weight:700; font-size:14px;">GH</div>
+          <div>
+            <div class="card-title">GitHub Copilot Enterprise</div>
+            <div class="card-sub">Agentic coding · Copilot Workspace · Coding Agent · Full codebase awareness</div>
+          </div>
+        </div>
+        <div class="cost-line cl-sep"><strong>Cost:</strong> Separate subscription — Enterprise US$39 / Business US$19 per user/mo. AI Credits billing from 1 Jun 2026.</div>
+        <div class="card-body">
+          <div style="background:#161B22;color:#7EE787;border-radius:6px;padding:8px 10px;font-size:11.5px;font-weight:700;margin-bottom:10px;letter-spacing:.3px;">⚡ The Claude Code equivalent for platform app development</div>
+          <ul>
+            <li>Entirely separate subscription — <strong>not part of M365 at all</strong></li>
+            <li>Enterprise: US$39/user/mo &nbsp;|&nbsp; Business: US$19/user/mo &nbsp;|&nbsp; Pro+: US$39/mo &nbsp;|&nbsp; Max: US$100/mo</li>
+            <li><strong>Copilot Workspace</strong> — assign a GitHub Issue; the agent autonomously plans, edits files across the repo, runs tests, and opens a PR</li>
+            <li><strong>Coding Agent (agent mode)</strong> — in VS Code/JetBrains/CLI: reads your entire codebase, runs terminal commands, makes multi-file changes end-to-end</li>
+            <li><strong>Knowledge Bases</strong> — semantic search across all org repos for codebase-aware answers</li>
+            <li>Choice of model per session: GPT-5.x, Claude Sonnet/Opus, Gemini 3.x</li>
+            <li><strong>AI Credits billing from 1 June 2026</strong> — monthly credit equals subscription value (Enterprise US$39, Business US$19); overage US$0.01/credit. Code completions remain unlimited.</li>
+            <li>IP indemnity, policy controls, audit logs, SAML/SSO</li>
+          </ul>
+          <div style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11.5px;">
+            <div style="background:#DFF6DD;border-radius:6px;padding:8px;color:#107C10;">✅ Autonomous multi-file coding · platform app development · issue-to-PR · codebase Q&amp;A · PR review</div>
+            <div style="background:#FFF4CE;border-radius:6px;padding:8px;color:#6B3A00;">⚠️ Each agentic run consumes many AI credits — budget carefully; Business tier lacks Workspace &amp; agent mode</div>
+          </div>
+          <div class="note-box note-dark" style="margin-top:8px;">🤖 Copilot Workspace agentic runs are credit-intensive. A single autonomous coding session can burn through a meaningful slice of your monthly AI credits. Reserve agent mode for meaningful tasks; use standard completions (free) for line-by-line work.</div>
+        </div>
+        <div class="card-foot"><span class="tag t-sep">🔴 Separate Subscription</span><span class="tag t-meter">⚡ Agentic runs deplete AI credit pool fast</span></div>
+      </div>
+      <div class="card constrained" style="border-left:4px solid #5C2D91;">
+        <div class="corner-badge cb-status">🔭 PREVIEW</div>
+        <div class="preview-badge">🔭 PREVIEW — Private / Frontier Experimental · Not GA</div>
+        <div class="card-top">
+          <div class="icon" style="background:linear-gradient(135deg,#5C2D91,#7B2FBE); font-size:18px; color:#fff;">🔭</div>
+          <div>
+            <div class="card-title">Microsoft Scout (Autopilot)</div>
+            <div class="card-sub">Always-on personal agent · Runs continuously without prompting · New agent category</div>
+          </div>
+        </div>
+        <div class="cost-line cl-con"><strong>Cost:</strong> Pricing not yet published. Requires Frontier enrolment + GitHub Copilot licence.</div>
+        <div class="card-body">
+          <div style="background:#F0E6FF;border-left:3px solid #5C2D91;border-radius:5px;padding:7px 10px;font-size:11.5px;margin-bottom:9px;color:#3B1F6B;"><strong>New agent category — Autopilot:</strong> Unlike on-demand Copilot, Scout runs autonomously in the background with its own Entra identity, acting on your behalf without being prompted each time.</div>
+          <ul>
+            <li>Proactively schedules &amp; coordinates meetings across time zones; generates prep materials</li>
+            <li>Identifies upcoming deliverables and automatically blocks focus time on your calendar</li>
+            <li>Spots risks — stalled decisions, cold follow-ups — before they become blockers</li>
+            <li>Builds context via <strong>Work IQ</strong>, learning how you work and what matters most over time</li>
+            <li>Operates across cloud, desktop &amp; web; connects to Teams, Outlook, OneDrive, SharePoint</li>
+            <li>Extends to browser, local resources &amp; MCP servers via the desktop app</li>
+            <li>Each Scout instance operates under its own governed <strong>Entra identity</strong> with scoped credentials</li>
+            <li>Built on <strong>OpenClaw</strong> open-source technology</li>
+          </ul>
+          <div style="margin-top:8px;background:#F9F7FF;border-radius:6px;padding:8px 10px;font-size:11.5px;border:1px solid #C8B3E8;">
+            <strong>Access requirements (all required):</strong> Frontier programme enrollment · Intune policy configuration · Opt-in attestation · <strong>GitHub Copilot licence</strong>
+          </div>
+          <div class="note-box" style="background:#F0E6FF;border-left:3px solid #7B2FBE;color:#3B1F6B;margin-top:8px;">⚠️ Pricing not yet published — Scout is experimental. Do not plan production budgets around it. Watch Frontier release notes for GA timeline and cost model.</div>
+        </div>
+        <div class="card-foot"><span class="tag t-status">🔭 Private Preview — Frontier only</span><span class="tag t-sep">🔴 Requires GitHub Copilot licence</span><span class="tag t-status">ℹ️ Pricing TBC</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ╔═══════════ §3 WATCH OUTS ═══════════╗ -->
+<div class="watchouts section">
+  <div class="sec-title"><span class="sec-num">3</span>⚠️ Watch outs — Included with Copilot, but with real limits</div>
+  <div class="con-grid">
+    <div class="con-card">
+      <h3>📊 Analyst Agent</h3>
+      <p>Uses an embedded Python interpreter to analyse structured data files from OneDrive and SharePoint. Great for one-off analysis, data summaries, and chart generation — but <strong>not a replacement for a full data platform</strong>.</p>
+      <div class="con-limits">
+        <span class="climit">Session compute cap</span>
+        <span class="climit">25 queries/mo (combined with Researcher)</span>
+        <span class="climit">No persistent environment between sessions</span>
+        <span class="climit">Best for ad-hoc, moderate complexity tasks</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;font-size:11.5px;">
+        <div style="background:#DFF6DD;border-radius:6px;padding:8px;color:#107C10;">✅ Excel summaries · simple charts · quick calculations · pivot exploration</div>
+        <div style="background:#FEE7E6;border-radius:6px;padding:8px;color:#B10E1E;">❌ Large-scale ETL · production reporting · enterprise BI · real-time data</div>
+      </div>
+    </div>
+    <div class="con-card">
+      <h3>🔍 Researcher Agent</h3>
+      <p>Performs multi-step deep research using Bing grounding, synthesising from multiple web sources into a coherent report. Powerful for evidence gathering — but <strong>not designed for continuous or bulk research workflows</strong>.</p>
+      <div class="con-limits">
+        <span class="climit">Bounded query depth per session</span>
+        <span class="climit">25 queries/mo (combined with Analyst)</span>
+        <span class="climit">Best for high-value, occasional research</span>
+        <span class="climit">Not a real-time data feed</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;font-size:11.5px;">
+        <div style="background:#DFF6DD;border-radius:6px;padding:8px;color:#107C10;">✅ Vendor due diligence · topic briefings · competitive landscape · policy research</div>
+        <div style="background:#FEE7E6;border-radius:6px;padding:8px;color:#B10E1E;">❌ Monitoring dozens of topics daily · mass automated research pipelines · real-time news</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ╔═══════════ §4 WHICH MODEL SHOULD I USE? ═══════════╗ -->
+<div class="appendix section">
+  <div class="sec-title"><span class="sec-num">4</span>🧠 Which model should I use? <span class="app-label">Practical guidance</span></div>
+  <p style="font-size:12.5px;color:#605E5C;margin-bottom:10px;">Most people don't need to pick a model — Copilot's default routing handles it. But if you want to override, this guide shows which model suits which task. <strong>Start with the default. Only switch when there's a clear reason.</strong></p>
+  <!-- ── 4A · Modes explainer (Auto / Quick Response / Think Deeper) ── -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;">
+      <div style="background:#fff;border:1px solid #0078D4;border-radius:10px;padding:12px 14px;">
+        <div style="font-size:11px;font-weight:800;color:#004E8C;letter-spacing:.4px;text-transform:uppercase;margin-bottom:4px;">⚙️ Auto <span style="background:#E1EFFA;color:#004E8C;padding:1px 6px;border-radius:3px;margin-left:4px;font-size:9.5px;">Default</span></div>
+        <div style="font-size:12.5px;color:#323130;line-height:1.5;">Copilot reads your prompt and <strong>routes it to the right model</strong> — fast for simple asks, deeper for complex ones. <strong>Leave this on unless you have a reason to override.</strong> Covers 80%+ of everyday work.</div>
+      </div>
+      <div style="background:#fff;border:1px solid #107C10;border-radius:10px;padding:12px 14px;">
+        <div style="font-size:11px;font-weight:800;color:#0B5C0B;letter-spacing:.4px;text-transform:uppercase;margin-bottom:4px;">⚡ Quick Response</div>
+        <div style="font-size:12.5px;color:#323130;line-height:1.5;">Forces Copilot to use a <strong>fast, lightweight model</strong> (GPT-5 Instant family). Best for quick lookups, short rewrites, and back-and-forth chat where you want speed over depth. Cheapest tier.</div>
+      </div>
+      <div style="background:#fff;border:1px solid #7B2FBE;border-radius:10px;padding:12px 14px;">
+        <div style="font-size:11px;font-weight:800;color:#5C2D91;letter-spacing:.4px;text-transform:uppercase;margin-bottom:4px;">🧠 Think Deeper</div>
+        <div style="font-size:12.5px;color:#323130;line-height:1.5;">Forces a <strong>reasoning model</strong> (GPT-5 Reasoning / Claude Opus). Use for complex problems, multi-step analysis, careful writing, or anything where the answer matters. Slower and uses more compute — pick deliberately.</div>
+      </div>
+  </div>
+  <!-- ── 4B · Task → Model matrix ── -->
+  <div style="background:#fff;border:1px solid #EDEBE9;border-radius:10px;overflow:hidden;margin-bottom:14px;">
+      <div style="background:#F3F2F1;padding:10px 14px;font-size:12.5px;font-weight:700;color:#201F1E;display:flex;align-items:center;gap:6px;">🎯 Task → Recommended model</div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead>
+          <tr style="background:#FAFAFA;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:#605E5C;">
+            <th style="padding:8px 12px;border-bottom:1px solid #EDEBE9;width:30%;">I want to…</th>
+            <th style="padding:8px 12px;border-bottom:1px solid #EDEBE9;width:25%;">Start with</th>
+            <th style="padding:8px 12px;border-bottom:1px solid #EDEBE9;width:30%;">Upgrade if…</th>
+            <th style="padding:8px 12px;border-bottom:1px solid #EDEBE9;width:15%;text-align:center;">Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ── Writing & everyday ── -->
+          <tr style="background:#F0F7FE;"><td colspan="4" style="padding:6px 12px;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#004E8C;">💬 Writing &amp; everyday</td></tr>
+          <tr>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">✏️ Draft an email, polish a paragraph, brainstorm</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;"><strong>Auto</strong> (GPT-5 family)</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">You want a warmer, more nuanced voice → <strong>Claude Sonnet 4.6</strong></td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;text-align:center;">🟢 Cheap</td>
+          </tr>
+          <tr style="background:#FBFBFB;">
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">📄 Summarise a long thread or document</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;"><strong>Quick Response</strong> (GPT-5 Instant)</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">Dense content, tables, or careful nuance → <strong>Claude Sonnet 4.6</strong></td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;text-align:center;">🟢 Cheap</td>
+          </tr>
+          <tr>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">💡 Think through a complex problem or decision</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;"><strong>Think Deeper</strong> (Reasoning model)</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">Long, multi-document context → <strong>Claude Opus 4.8</strong></td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;text-align:center;">🟡 Medium</td>
+          </tr>
+          <!-- ── Creating & editing files (Office Agent Mode) ── -->
+          <tr style="background:#FFFBF0;"><td colspan="4" style="padding:6px 12px;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#A65700;">📂 Creating &amp; editing Office files (Agent Mode)</td></tr>
+          <tr>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">📄 Write or edit a Word document (prose, reports, briefs)</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;"><strong>Claude Sonnet 4.6</strong> (expected default from summer 2026)</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">Need careful peer-review of the draft → <strong>Sonnet + Opus Advisor</strong> (Cowork)</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;text-align:center;">🟡 Medium</td>
+          </tr>
+          <tr style="background:#FBFBFB;">
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">📊 Build or fix an Excel model (formulas, pivots, data shaping)</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;"><strong>Auto</strong> — Claude is now the Excel Agent Mode default (from May 2026)</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">Claude struggling with a specific Excel-native feature → switch to <strong>GPT-5</strong></td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;text-align:center;">🟡 Medium</td>
+          </tr>
+          <tr>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">🎯 Create a PowerPoint deck from a brief or doc</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;"><strong>Auto</strong> — Claude is now the PowerPoint Agent Mode default</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">Want a richer narrative arc &amp; structure → <strong>Claude Opus 4.8</strong></td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;text-align:center;">🟡 Medium</td>
+          </tr>
+          <tr style="background:#FBFBFB;">
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">🛠️ Create a file from scratch (M365 Copilot app → Tools → Word/Excel/PowerPoint Agent)</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;"><strong>Claude</strong> (only option — agent is Claude-only; admin opt-in required)</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">If unavailable, ask your admin to enable Anthropic models</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;text-align:center;">🟡 Medium</td>
+          </tr>
+          <!-- ── Creating structured artefacts ── -->
+          <tr style="background:#F9F5FE;"><td colspan="4" style="padding:6px 12px;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#5C2D91;">🧱 Creating structured artefacts (HTML, JSON, etc.)</td></tr>
+          <tr>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">🌐 Build HTML / web pages / structured visual layouts</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;"><strong>Claude Opus 4.8</strong> ★ (best at HTML &amp; CSS structure)</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">Small tweaks only → <strong>Claude Sonnet 4.6</strong> (cheaper, still strong)</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;text-align:center;">🔴 Higher</td>
+          </tr>
+          <tr style="background:#FBFBFB;">
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">🧩 Generate JSON, YAML, SharePoint formatting, schema</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;"><strong>Claude Sonnet 4.6</strong> (precise structured output)</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">Tricky spec compliance or large schemas → <strong>Claude Opus 4.8</strong></td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;text-align:center;">🟡 Medium</td>
+          </tr>
+          <!-- ── Research & analysis ── -->
+          <tr style="background:#F2FAF2;"><td colspan="4" style="padding:6px 12px;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#107C10;">🔬 Research &amp; analysis</td></tr>
+          <tr>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">🔬 Multi-step research with citations</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;"><strong>Researcher Agent</strong> (auto-picks)</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">Need a finished deliverable, not a draft → <strong>Cowork on Opus 4.8</strong></td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;text-align:center;">🔴 Higher</td>
+          </tr>
+          <tr style="background:#FBFBFB;">
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">📈 Analyse a data file (CSV, Excel) with charts &amp; insights</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;"><strong>Analyst Agent</strong> (Python sandbox)</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">Hit session limits or need M365-wide data → <strong>Fabric Copilot</strong></td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;text-align:center;">🟡 Medium</td>
+          </tr>
+          <!-- ── Building agents ── -->
+          <tr style="background:#FFF4CE;"><td colspan="4" style="padding:6px 12px;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#A65700;">🤖 Building agents (Copilot Studio)</td></tr>
+          <tr>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">🤖 Build a Teams FAQ or simple agent</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;"><strong>GPT-4.1</strong> (Studio default)</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;">Quality issues or richer answers needed → <strong>Claude Sonnet 4.6</strong></td>
+            <td style="padding:9px 12px;border-bottom:1px solid #F3F2F1;text-align:center;">🟡 Medium</td>
+          </tr>
+          <tr style="background:#FBFBFB;">
+            <td style="padding:9px 12px;">🧩 Build an agent that does complex reasoning</td>
+            <td style="padding:9px 12px;"><strong>Claude Sonnet 4.6</strong> (Studio)</td>
+            <td style="padding:9px 12px;">Genuinely needs deep logic chains → <strong>Claude Opus 4.6 / 4.8</strong></td>
+            <td style="padding:9px 12px;text-align:center;">🔴 Higher</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  <!-- ── 4C · Model "personality" reference ── -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+    <div style="background:#fff;border:1px solid #EDEBE9;border-radius:10px;padding:12px 14px;border-left:4px solid #107C10;">
+      <div style="font-size:13px;font-weight:800;color:#0B5C0B;margin-bottom:4px;">🟢 GPT-5 family (OpenAI)</div>
+      <div style="font-size:11.5px;color:#3B3B3B;line-height:1.55;"><strong>The general-purpose default for Copilot Chat.</strong> Fast, balanced, well-rounded — Auto-routing covers everyday tasks like summarisation, Q&amp;A, web lookups and light writing. Still a strong override in Excel Agent Mode if Claude isn't producing the result you want. <em>GPT-5 Instant</em> is the cheapest tier; <em>GPT-5 Reasoning</em> is "Think Deeper".</div>
+    </div>
+    <div style="background:#fff;border:1px solid #EDEBE9;border-radius:10px;padding:12px 14px;border-left:4px solid #7B2FBE;">
+      <div style="font-size:13px;font-weight:800;color:#5C2D91;margin-bottom:4px;">🟣 Claude family (Anthropic)</div>
+      <div style="font-size:11.5px;color:#3B3B3B;line-height:1.55;"><strong>Now the default reasoning model for Copilot in Excel and PowerPoint, with Word expected to follow in summer 2026.</strong> Strong long-form writing, careful reasoning, and a noticeable edge on structured artefacts like HTML, CSS, JSON, YAML and SharePoint formatting. Sonnet 4.6 is the sweet spot for everyday work; Opus 4.8 for deep reasoning and complex structured output (costs more credits). Requires admin opt-in; off by default in UK/EU.</div>
+    </div>
+    <div style="background:#fff;border:1px solid #EDEBE9;border-radius:10px;padding:12px 14px;border-left:4px solid #B0B7BF;">
+      <div style="font-size:13px;font-weight:800;color:#3B3B3B;margin-bottom:4px;">⚪ Microsoft fine-tuned</div>
+      <div style="font-size:11.5px;color:#3B3B3B;line-height:1.55;"><strong>Cheaper, surface-specific defaults.</strong> <em>Cowork 1</em> (coming soon) for routine Cowork tasks. Use these as the default in their product unless you have a reason to override.</div>
+    </div>
+  </div>
+  <!-- ── 4D · Why does this matter? ── -->
+  <div style="margin-top:12px;background:#F9F5FE;border-left:3px solid #7B2FBE;border-radius:6px;padding:10px 14px;font-size:11.5px;color:#3B1F6B;line-height:1.55;">
+    <strong>💡 Why does this matter?</strong> Microsoft has shifted Office Agent experiences (Excel and PowerPoint, with Word expected to follow in summer 2026) to use <strong>Anthropic Claude as the default reasoning model from May 2026</strong>, with OpenAI GPT-5 remaining selectable. The standalone Word/Excel/PowerPoint Agents in the M365 Copilot app are <strong>Claude-only</strong>. For structured artefacts (HTML, CSS, JSON, SharePoint formatting) Claude — especially Opus — has a clear edge. For everyday Copilot Chat tasks outside Office apps, GPT-5 with Auto routing remains the default and is plenty.  
+  </div>
+</div>
+<!-- ╔═══════════ FOOTER ═══════════╗ -->
+<div class="footer">
+  All prices are US public list pricing as of June 2026 — subject to change. Fabric CU consumption depends on your capacity tier. GitHub Copilot AI credit allocations vary by plan and may change. Contact your IT administrator or Microsoft representative for current licence details and usage reporting. 
+</div>
+<div class="footer-legal">
+  © 2026 Jeremy Hancock. Free to share, copy, and adapt with attribution (CC BY 4.0) — please keep this notice and the "compiled as at" date intact when reposting.<br>
+  This is an independent, unofficial guide and is not produced, reviewed, or endorsed by Microsoft. Microsoft, Microsoft 365, Copilot, and related marks are trademarks of Microsoft Corporation. All product names, logos, and pricing referenced belong to their respective owners and are used here for identification purposes only. Provided "as is," without warranty of accuracy or completeness — verify all figures independently before relying on them for business decisions.
+</div>
+</div><!-- /page -->
+</body>
+</html>
